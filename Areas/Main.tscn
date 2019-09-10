@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Tileset/Walls.tres" type="TileSet" id=1]
 [ext_resource path="res://Fonts/ALGER.TTF" type="DynamicFontData" id=2]
-[ext_resource path="res://Areas/Score.gd" type="Script" id=3]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Enemies/grelda.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/grelda.tscn" type="PackedScene" id=4]
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
 
@@ -14,18 +13,18 @@ script/source = "extends Node2D
 func _ready():
 	pass"
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 64
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 50
 font_data = ExtResource( 2 )
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=4]
 
 [node name="Main" type="Node2D"]
-script = SubResource( 4 )
+script = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 9.0
@@ -44,11 +43,12 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="."]
+visible = false
 margin_left = 93.7646
 margin_top = 22.2691
 margin_right = 978.765
 margin_bottom = 244.269
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "The Adventures of Grelda
  and Also an Octopus
@@ -62,103 +62,15 @@ margin_left = 76.2101
 margin_top = 650.262
 margin_right = 141.21
 margin_bottom = 712.262
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
-script = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D" parent="."]
-script = SubResource( 3 )
+script = SubResource( 4 )
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 928.121, 674.088 )
 
-[node name="grelda" parent="." instance=ExtResource( 5 )]
+[node name="grelda" parent="." instance=ExtResource( 4 )]
 position = Vector2( 788.883, 697.023 )
-
-[node name="Greldas" type="Node" parent="."]
-editor/display_folded = true
-
-[node name="grelda2" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 739.891, 526.664 )
-
-[node name="grelda3" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 761.047, 589.018 )
-
-[node name="grelda4" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 322.638, 616.327 )
-
-[node name="grelda5" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 260.519, 447.55 )
-
-[node name="grelda6" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 211.293, 244.784 )
-
-[node name="grelda7" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 366.004, 109.998 )
-
-[node name="grelda8" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 313.262, 167.429 )
-
-[node name="grelda9" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 739.891, 124.062 )
-
-[node name="grelda10" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 952.033, 162.74 )
-
-[node name="grelda11" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 615.653, 152.192 )
-
-[node name="grelda12" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 442.598, 185.947 )
-
-[node name="grelda13" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 327.912, 535.572 )
-
-[node name="grelda14" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 850.123, 202.649 )
-
-[node name="grelda15" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 914.703, 236.052 )
-
-[node name="grelda16" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 418.102, 674.754 )
-
-[node name="grelda17" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 659.722, 683.661 )
-
-[node name="grelda18" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 901.342, 360.76 )
-
-[node name="grelda19" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 703.147, 388.596 )
-
-[node name="grelda20" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 621.865, 486.58 )
-
-[node name="grelda21" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 558.398, 693.682 )
-
-[node name="grelda22" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 462.641, 484.353 )
-
-[node name="grelda23" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 501.612, 595.698 )
-
-[node name="grelda24" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 621.865, 596.812 )
-
-[node name="grelda25" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 774.408, 268.343 )
-
-[node name="grelda26" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 702.033, 316.221 )
-
-[node name="grelda27" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 626.318, 262.775 )
-
-[node name="grelda28" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 506.065, 357.419 )
-
-[node name="grelda29" parent="Greldas" instance=ExtResource( 5 )]
-position = Vector2( 392.493, 335.15 )

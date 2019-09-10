@@ -4,8 +4,18 @@ func _init():
 	TYPE = "PLAYER"
 	SPEED = 200
 	DAMAGE = 0
+
+var state = "default"
+
 	
 func _physics_process(delta):
+	match state:
+		"default":
+			state_default()
+		"swing":
+			state_swing()
+	
+func state_default():
 	movement_loop()
 	controls_loop()
 	spritedir_loop()
@@ -18,7 +28,11 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("use_item"):
 		use_item(preload("res://Items/sword.tscn"))
-		
+
+func state_swing():
+	anim_switch("idle")
+	damage_loop()
+
 func controls_loop():
 	var LEFT 	= Input.is_action_pressed("ui_left")
 	var RIGHT	= Input.is_action_pressed("ui_right")
@@ -27,7 +41,6 @@ func controls_loop():
 	
 	movedir.x = - int(LEFT) + int(RIGHT)
 	movedir.y = - int(UP) + int(DOWN)
-\
 
 """
 

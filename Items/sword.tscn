@@ -15,7 +15,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -20 ) ]
+"values": [ Vector2( 0, 20 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -27,7 +27,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 180.0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:z_index")
@@ -52,7 +52,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 0 ),
 "update": 0,
 "values": [ Vector2( -20, 0 ) ]
 }
@@ -64,7 +64,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 0 ),
 "update": 0,
 "values": [ 270.0 ]
 }
@@ -76,7 +76,7 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 0 ),
 "update": 1,
 "values": [ 1 ]
 }
@@ -84,7 +84,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=3]
 resource_name = "swingright"
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:z_index")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -92,8 +92,8 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 20, 0 ) ]
+"update": 1,
+"values": [ 1 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -108,7 +108,7 @@ tracks/1/keys = {
 "values": [ 90.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:z_index")
+tracks/2/path = NodePath(".:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -116,8 +116,8 @@ tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
+"update": 0,
+"values": [ Vector2( 20, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -172,7 +172,8 @@ __meta__ = {
 }
 
 [node name="anim" type="AnimationPlayer" parent="."]
-playback_speed = 6.0
+playback_process_mode = 0
+playback_speed = 7.0
 anims/swingdown = SubResource( 1 )
 anims/swingleft = SubResource( 2 )
 anims/swingright = SubResource( 3 )
@@ -180,6 +181,7 @@ anims/swingup = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
+z_index = 1
 texture = ExtResource( 2 )
 hframes = 2
 
