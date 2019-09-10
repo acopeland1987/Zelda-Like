@@ -1,18 +1,24 @@
 extends entity
 
-var speed = 200
-
+func _init():
+	TYPE = "PLAYER"
+	SPEED = 200
+	DAMAGE = 0
+	
 func _physics_process(delta):
 	movement_loop()
 	controls_loop()
 	spritedir_loop()
+	damage_loop()
 	
 	if movedir != Vector2(0,0):
 		anim_switch("walk")
 	else:
 		anim_switch("idle")
-	
-
+		
+	if Input.is_action_just_pressed("use_item"):
+		use_item(preload("res://Items/sword.tscn"))
+		
 func controls_loop():
 	var LEFT 	= Input.is_action_pressed("ui_left")
 	var RIGHT	= Input.is_action_pressed("ui_right")
@@ -21,26 +27,10 @@ func controls_loop():
 	
 	movedir.x = - int(LEFT) + int(RIGHT)
 	movedir.y = - int(UP) + int(DOWN)
-	
-		
-""" This next code is to replace walk_anim for 4-direction movement
+\
 
-func spritedir_loop():
-	match movedir:
-		Vector2(-1,0):
-			spritedir = "left"
-		Vector2(1,0):
-			spritedir = "right"
-		Vector2(0,-1):
-			spritedir = "up"
-		Vector2(0,1):
-			spritedir = "down"
-			
-func anim_switch(animation):
-	var newanim = str(animation.spritedir)
-	if $anim.current_animation != newanim:
-		#anim.play(newanim)
-		
+"""
+
 in physics function, add:
 
 if movedir != Vector2(0,0):
